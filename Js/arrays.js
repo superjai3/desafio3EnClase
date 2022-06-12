@@ -96,21 +96,19 @@ let productoSinStock = [
 let codigosSinStock = ["S03", "S01"];
 
 //INICIO DEL PROGRAMA
-// OPCIONES CLIENTE
-//Solicitar nombre para ofrecer servicio mas personalizado.
+//Se solicita nombre para ofrecer servicio mas personalizado.
 let nombreCliente = prompt(
   "Bienvenida/o a LASAGNA ARGENTINA! Cuentanos como te llamas:"
 );
 
 while (nombreCliente != "Admin") {
+  //OPCIONES DEL MENÚ
   let eleccionCliente = parseInt(
     prompt(`Hola ${nombreCliente}, gracias por elegirnos! Selecciona la opcion de lo que deseas comprar:
   1. para elegir nuestras Lasagna.
   2. para elegir nuestros Sorrentinos.
   3. para salir.`)
   );
-
-  //OPCIONES DEL MENÚ
 
   while (eleccionCliente != 1 && eleccionCliente != 2 && eleccionCliente != 3) {
     eleccionNueva = undefined;
@@ -123,8 +121,10 @@ while (nombreCliente != "Admin") {
     eleccionCliente = eleccionNueva;
   }
 
+  //DESARROLLO DE LA LASAGNA
+
   if (eleccionCliente == 1) {
-    opcionCliente = parseInt(
+    let opcionCliente = parseInt(
       prompt(`${nombreCliente} por favor seleccione el relleno que más te guste:
     
     1. ${lasagna1.nombre} - Stock ${lasagna1.cantidad} - Precio x unid $${lasagna1.precio}.
@@ -132,13 +132,101 @@ while (nombreCliente != "Admin") {
     3. ${lasagna3.nombre} - Stock ${lasagna3.cantidad} - Precio x unid $${lasagna3.precio}.
     4. ${lasagna4.nombre} - Stock ${lasagna4.cantidad} - Precio x unid $${lasagna4.precio}.`)
     );
+
+    while (
+      opcionCliente != 1 &&
+      opcionCliente != 2 &&
+      opcionCliente != 3 &&
+      opcionCliente != 4
+    ) {
+      seleccione = undefined;
+      seleccione = parseInt(
+        prompt(`La información ingresada "${opcionCliente}" no es válida, por favor elige una de estas alternativas:
+          1. ${lasagna1.nombre} - Stock ${lasagna1.cantidad} - Precio x unid $${lasagna1.precio}.
+          2. ${lasagna2.nombre} - Stock ${lasagna2.cantidad} - Precio x unid $${lasagna2.precio}.
+          3. ${lasagna3.nombre} - Stock ${lasagna3.cantidad} - Precio x unid $${lasagna3.precio}.
+          4. ${lasagna4.nombre} - Stock ${lasagna4.cantidad} - Precio x unid $${lasagna4.precio}.`)
+      );
+      opcionCliente = seleccione;
+    }
+
+    //DELIVERY DE LA LASAGNA
+
+    if (opcionCliente >= 1 || opcionCliente <= 4) {
+      let opcionDelivery = parseInt(
+        prompt(`${nombreCliente} por favor seleccione la modalidad de envío:
+        1. para obtener envio a domicilio (Delivery => Precio +$150).
+        2. para retirar en el local (Take Away => Precio +$0).
+        3. para salir.`)
+      );
+
+      while (
+        opcionDelivery != 1 &&
+        opcionDelivery != 2 &&
+        opcionDelivery != 3
+      ) {
+        {
+          eleccionNew = undefined;
+          eleccionNew = parseInt(
+            prompt(`La información ingresada "${opcionDelivery}" no es válida, por favor elige una de estas 3 alternativas:
+                      1. para obtener envio a domicilio (Delivery => Precio +$150).
+                      2. para retirar en el local (Take Away => Precio +$0).
+                      3. para salir.`)
+          );
+          opcionDelivery = eleccionNew;
+        }
+      }
+    }
+
+    //DESARROLLO DE LOS SORRENTINOS
   } else if (eleccionCliente == 2) {
-    opcionCliente = parseInt(
+    let opcionCliente = parseInt(
       prompt(`${nombreCliente} por favor seleccione el relleno que más te guste:
       1. ${pastas1.nombre} - Stock ${pastas1.cantidad} - Precio x unid $${pastas1.precio}.
       2. ${pastas2.nombre} - Stock ${pastas2.cantidad} - Precio x unid $${pastas2.precio}.
       3. ${pastas3.nombre} - Stock ${pastas3.cantidad} - Precio x unid $${pastas3.precio}.`)
     );
+
+    while (opcionCliente != 1 && opcionCliente != 2 && opcionCliente != 3) {
+      seleccione = undefined;
+      seleccione = parseInt(
+        prompt(`La información ingresada "${opcionCliente}" no es válida, por favor elige una de estas alternativas:
+        1. ${pastas1.nombre} - Stock ${pastas1.cantidad} - Precio x unid $${pastas1.precio}.
+        2. ${pastas2.nombre} - Stock ${pastas2.cantidad} - Precio x unid $${pastas2.precio}.
+        3. ${pastas3.nombre} - Stock ${pastas3.cantidad} - Precio x unid $${pastas3.precio}.`)
+      );
+      opcionCliente = seleccione;
+    }
+
+    //DELIVERY DE LA SORRENTINOS
+
+    if (opcionCliente >= 1 || opcionCliente <= 3) {
+      let opcionDelivery = parseInt(
+        prompt(`${nombreCliente} por favor seleccione la modalidad de envío:
+      1. para obtener envio a domicilio (Delivery => Precio +$150).
+      2. para retirar en el local (Take Away => Precio +$0).
+      3. para salir.`)
+      );
+
+      while (
+        opcionDelivery != 1 &&
+        opcionDelivery != 2 &&
+        opcionDelivery != 3
+      ) {
+        {
+          eleccionNew = undefined;
+          eleccionNew = parseInt(
+            prompt(`La información ingresada "${opcionDelivery}" no es válida, por favor elige una de estas 3 alternativas:
+                    1. para obtener envio a domicilio (Delivery => Precio +$150).
+                    2. para retirar en el local (Take Away => Precio +$0).
+                    3. para salir.`)
+          );
+          opcionDelivery = eleccionNew;
+        }
+      }
+    }
+
+    //SALIR DEL PROGRAMA
   } else if (eleccionCliente == 3) {
     // Tomar sugerencia del cliente
     posibleProducto = prompt(
@@ -160,33 +248,6 @@ while (nombreCliente != "Admin") {
       alert(`Gracias por visitarnos ${nombreCliente}. vuelve pronto!`);
     }
   }
-
-  // while (eleccionCliente == 1 || eleccionCliente == 2) {
-  //   cantidadCompra = undefined;
-  //   cantidadCompra = parseInt(prompt(`Elija cuantas unidades desea comprar? hay en Stock "${cantidad}" unidades:`  + productosEnStock[cantidad- 1]));
-  //   eleccionCliente = eleccionNueva;
-  // }
-
-  // if (
-  //   (eleccionCliente == 1) ||
-  //   (eleccionCliente == 2)
-  // ) {
-  //   function precioFinal(valor) {
-  //     let cantidad = parseInt( prompt(`Seleccionaste ${stock[valor - 1].nombre}, cuantas unidades quieres?`));
-  //     return cantidad * stock[valor - 1].precio;
-
-  //   }
-
-  // }
-
-  //Ofrecer envio a domicilio. Detallar pedido y costo
-
-  let eleccionDelivery = parseInt(
-    prompt(`Quieres envio a domicilio? Tendra un COSTO EXTRA de $${costoEnvio}, seleccione una opción:
-  1. Opción Delivery. Costo Final: $${eleccionCliente.precio} + $${costoEnvio} = $${precioFinal}. 
-  2. Opción Take Away. Costo Final: $${eleccionCliente.precio} = $${precioFinal}
-  3. para salir.`)
-  );
 
   //OPCIONES DEL DELIVERY
 
@@ -227,39 +288,37 @@ while (nombreCliente != "Admin") {
   }
 }
 
-{
-  // OPCIONES DEL ADMINISTRADOR
-  // Agregar o quitar productos del stock
-  eleccionAdmin =
-    prompt(`Bienvenido al control de Stock! Qué acción desea realizar? Presione:
+// OPCIONES DEL ADMINISTRADOR
+// Agregar o quitar productos del stock
+eleccionAdmin =
+  prompt(`Bienvenido al control de Stock! Qué acción desea realizar? Presione:
            1 para agregar un producto al tock.
            2 para quitar un producto del Stock.
            3 para salir.`);
 
-  while (eleccionAdmin != 1 && eleccionAdmin != 2 && eleccionAdmin != 3) {
-    eleccionNewAdmin = undefined;
-    eleccionNewAdmin = parseInt(
-      prompt(`La información ingresada "${eleccionAdmin}" no es válida, por favor elige una de estas 3 alternativas:
+while (eleccionAdmin != 1 && eleccionAdmin != 2 && eleccionAdmin != 3) {
+  eleccionNewAdmin = undefined;
+  eleccionNewAdmin = parseInt(
+    prompt(`La información ingresada "${eleccionAdmin}" no es válida, por favor elige una de estas 3 alternativas:
                       1 para agregar un producto al tock.
                       2 para quitar un producto del Stock.
                       3 para salir.`)
-    );
-    eleccionAdmin = eleccionNewAdmin;
-  }
+  );
+  eleccionAdmin = eleccionNewAdmin;
+}
 
-  if (eleccionAdmin == 1) {
-    agregarProducto = prompt(
-      `Indique el nombre del producto que desea agregar al stock`
-    ).toLowerCase();
-    console.log(`Usted eligio ${agregarProducto}`);
-    agregarStock(agregarProducto);
-  } else if (eleccionAdmin == 2) {
-    quitarProducto = prompt(
-      `Indique el nombre del producto que desea quitar del stock`
-    ).toLowerCase();
-    console.log(`Usted eligio ${quitarProducto}`);
-    quitarStock(quitarProducto);
-  } else if (eleccionAdmin == 3) {
-    console.log(`Gracias por actualizar el Stock.`);
-  }
+if (eleccionAdmin == 1) {
+  agregarProducto = prompt(
+    `Indique el nombre del producto que desea agregar al stock`
+  ).toLowerCase();
+  console.log(`Usted eligio ${agregarProducto}`);
+  agregarStock(agregarProducto);
+} else if (eleccionAdmin == 2) {
+  quitarProducto = prompt(
+    `Indique el nombre del producto que desea quitar del stock`
+  ).toLowerCase();
+  console.log(`Usted eligio ${quitarProducto}`);
+  quitarStock(quitarProducto);
+} else if (eleccionAdmin == 3) {
+  console.log(`Gracias por actualizar el Stock.`);
 }
