@@ -95,8 +95,8 @@ let productoSinStock = [
 ];
 let codigosSinStock = ["S03", "S01"];
 
+//INICIO DEL PROGRAMA
 // OPCIONES CLIENTE
-
 //Solicitar nombre para ofrecer servicio mas personalizado.
 let nombreCliente = prompt(
   "Bienvenida/o a LASAGNA ARGENTINA! Cuentanos como te llamas:"
@@ -151,7 +151,7 @@ while (nombreCliente != "Admin") {
       {
         if (correo !== "") {
           alert("Gracias por elegirnos! Tendremos en cuenta su opinión.");
-          sugerenciasClientes.push(new sugerencia(posibleProducto, correo));
+          sugerenciasClientes.push("posibleProducto", "correo");
         } else {
           alert(`Gracias por visitarnos ${nombreCliente}. vuelve pronto!`);
         }
