@@ -150,13 +150,26 @@ while (nombreCliente != "Admin") {
       opcionCliente = seleccione;
     }
 
+    //Cálculo del precio a pagar
+    if (opcionCliente == 1) {
+      precioLasagna = lasagna1.precio;
+    } else if (opcionCliente == 2) {
+      precioLasagna = lasagna2.precio;
+    } else if (opcionCliente == 3) {
+      precioLasagna = lasagna3.precio;
+    } else if (opcionCliente == 4) {
+      precioLasagna = lasagna4.precio;
+    }
+
+    precioConDeliveryLasagna = precioLasagna + costoEnvio;
+
     //DELIVERY DE LA LASAGNA
 
     if (opcionCliente >= 1 || opcionCliente <= 4) {
       let opcionDelivery = parseInt(
         prompt(`${nombreCliente} por favor seleccione la modalidad de envío:
-        1. para obtener envio a domicilio (Delivery => Precio +$150).
-        2. para retirar en el local (Take Away => Precio +$0).
+        1. para obtener envio a domicilio (Delivery => ${precioLasagna} +$150 => Total a Pagar ${precioConDeliveryLasagna}).
+        2. para retirar en el local (Take Away => ${precioLasagna} +$0 => Total a Pagar ${precioLasagna}).
         3. para salir.`)
       );
 
@@ -169,14 +182,20 @@ while (nombreCliente != "Admin") {
           eleccionNew = undefined;
           eleccionNew = parseInt(
             prompt(`La información ingresada "${opcionDelivery}" no es válida, por favor elige una de estas 3 alternativas:
-                      1. para obtener envio a domicilio (Delivery => Precio +$150).
-                      2. para retirar en el local (Take Away => Precio +$0).
-                      3. para salir.`)
+            1. para obtener envio a domicilio (Delivery => ${precioLasagna} +$150 => Total a Pagar ${precioConDelivery}).
+            2. para retirar en el local (Take Away => ${precioLasagna} +$0 => Total a Pagar ${precioLasagna}).
+            3. para salir.`)
           );
           opcionDelivery = eleccionNew;
         }
       }
     }
+
+    //CONCLUSIÓN DE LA COMPRA
+
+    alert(
+      "Gracias por elegirnos! Tu pedido ya se encuentra de en preparación, estará listo en 10 minutos aproximadamente"
+    );
 
     //DESARROLLO DE LOS SORRENTINOS
   } else if (eleccionCliente == 2) {
@@ -198,13 +217,28 @@ while (nombreCliente != "Admin") {
       opcionCliente = seleccione;
     }
 
+    //Cálculo del precio a pagar
+    if (opcionCliente == 1) {
+      precioSorrentino = pastas1.precio;
+    } else if (opcionCliente == 2) {
+      precioSorrentino = pastas2.precio;
+    } else if (opcionCliente == 3) {
+      precioSorrentino = pastas3.precio;
+    } else if (opcionCliente == 4) {
+      precioSorrentino = pastas4.precio;
+    }
+
+    precioConDeliverySorrentino = precioSorrentino + costoEnvio;
+
     //DELIVERY DE LA SORRENTINOS
 
     if (opcionCliente >= 1 || opcionCliente <= 3) {
       let opcionDelivery = parseInt(
         prompt(`${nombreCliente} por favor seleccione la modalidad de envío:
-      1. para obtener envio a domicilio (Delivery => Precio +$150).
-      2. para retirar en el local (Take Away => Precio +$0).
+      
+      
+      1. para obtener envio a domicilio (Delivery => ${precioSorrentino} +$150 => Total a Pagar ${precioConDeliverySorrentino}).
+      2. para retirar en el local (Take Away => ${precioSorrentino} +$0 => Total a Pagar ${precioSorrentino}).
       3. para salir.`)
       );
 
@@ -217,14 +251,20 @@ while (nombreCliente != "Admin") {
           eleccionNew = undefined;
           eleccionNew = parseInt(
             prompt(`La información ingresada "${opcionDelivery}" no es válida, por favor elige una de estas 3 alternativas:
-                    1. para obtener envio a domicilio (Delivery => Precio +$150).
-                    2. para retirar en el local (Take Away => Precio +$0).
-                    3. para salir.`)
+            1. para obtener envio a domicilio (Delivery => ${precioSorrentino} +$150 => Total a Pagar ${precioConDeliverySorrentino}).
+            2. para retirar en el local (Take Away => ${precioSorrentino} +$0 => Total a Pagar ${precioSorrentino}).
+            3. para salir.`)
           );
           opcionDelivery = eleccionNew;
         }
       }
     }
+
+    //CONCLUSIÓN DE LA COMPRA
+
+    alert(
+      "Gracias por elegirnos! Tu pedido ya se encuentra de en preparación, estará listo en 10 minutos aproximadamente"
+    );
 
     //SALIR DEL PROGRAMA
   } else if (eleccionCliente == 3) {
