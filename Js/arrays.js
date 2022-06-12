@@ -170,7 +170,7 @@ while (nombreCliente != "Admin") {
         prompt(`${nombreCliente} por favor seleccione la modalidad de envío:
         1. para obtener envio a domicilio (Delivery => ${precioLasagna} +$150 => Total a Pagar ${precioConDeliveryLasagna}).
         2. para retirar en el local (Take Away => ${precioLasagna} +$0 => Total a Pagar ${precioLasagna}).
-        3. para salir.`)
+        3. Cancelar compra.`)
       );
 
       while (
@@ -184,19 +184,24 @@ while (nombreCliente != "Admin") {
             prompt(`La información ingresada "${opcionDelivery}" no es válida, por favor elige una de estas 3 alternativas:
             1. para obtener envio a domicilio (Delivery => ${precioLasagna} +$150 => Total a Pagar ${precioConDelivery}).
             2. para retirar en el local (Take Away => ${precioLasagna} +$0 => Total a Pagar ${precioLasagna}).
-            3. para salir.`)
+            3. Cancelar compra.`)
           );
           opcionDelivery = eleccionNew;
         }
       }
+
+      //CONCLUSIÓN DE LA COMPRA
+
+      if (opcionDelivery != 3) {
+        alert(
+          "Gracias por elegirnos! Tu pedido ya se encuentra de en preparación, estará listo en 10 minutos aproximadamente"
+        );
+      } else if (opcionDelivery == 3) {
+        alert(
+          "Llegaste tan lejos! Te estaremos esperando en una próxima oportunidad."
+        );
+      }
     }
-
-    //CONCLUSIÓN DE LA COMPRA
-
-    alert(
-      "Gracias por elegirnos! Tu pedido ya se encuentra de en preparación, estará listo en 10 minutos aproximadamente"
-    );
-
     //DESARROLLO DE LOS SORRENTINOS
   } else if (eleccionCliente == 2) {
     let opcionCliente = parseInt(
@@ -258,13 +263,18 @@ while (nombreCliente != "Admin") {
           opcionDelivery = eleccionNew;
         }
       }
+      //CONCLUSIÓN DE LA COMPRA
+
+      if (opcionDelivery != 3) {
+        alert(
+          "Gracias por elegirnos! Tu pedido ya se encuentra de en preparación, estará listo en 10 minutos aproximadamente"
+        );
+      } else if (opcionDelivery == 3) {
+        alert(
+          "Llegaste tan lejos! Te estaremos esperando en una próxima oportunidad."
+        );
+      }
     }
-
-    //CONCLUSIÓN DE LA COMPRA
-
-    alert(
-      "Gracias por elegirnos! Tu pedido ya se encuentra de en preparación, estará listo en 10 minutos aproximadamente"
-    );
 
     //SALIR DEL PROGRAMA
   } else if (eleccionCliente == 3) {
