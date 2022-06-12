@@ -1,0 +1,10 @@
+* body {
+  margin: 0px auto;
+  padding: 40px;
+  width: 80%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+}
+
+h1 {
+  color: cornflowerblue;
+}
