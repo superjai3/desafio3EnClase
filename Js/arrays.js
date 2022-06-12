@@ -32,18 +32,18 @@ const pastas2 = new producto("S02", "SORRENTINOS DE JAMON Y QUESO", 7, 440);
 const pastas3 = new producto("S03", "SORRENTINOS DE VERDURA", 4, 410);
 
 //Funciones
-function precioCantidad(valor) {
-  let cantidad = parseInt(
-    prompt(
-      `Seleccionaste ${
-        stock[valor - 1].nombre
-      }, cuantos porciones quieres? Recuerda que cada combo trae ${
-        stock[valor - 1].cantidad
-      } unidades.`
-    )
-  );
-  return cantidad * stock[valor - 1].precio;
-}
+// function precioCantidad(valor) {
+//   let cantidad = parseInt(
+//     prompt(
+//       `Seleccionaste ${
+//         stock[valor - 1].nombre
+//       }, cuantos porciones quieres? Recuerda que cada combo trae ${
+//         stock[valor - 1].cantidad
+//       } unidades.`
+//     )
+//   );
+//   return cantidad * stock[valor - 1].precio;
+// }
 
 function agregarStock(elemento) {
   if (codigosEnStock.includes(elemento.codigo) === false) {
@@ -125,7 +125,7 @@ while (nombreCliente != "Admin") {
 
   if (eleccionCliente == 1) {
     opcionCliente = parseInt(
-      prompt(`${nombreCliente} por favor selecciona el relleno que más te guste:
+      prompt(`${nombreCliente} por favor seleccione el relleno que más te guste:
     
     1. ${lasagna1.nombre} - Stock ${lasagna1.cantidad} - Precio x unid $${lasagna1.precio}.
     2. ${lasagna2.nombre} - Stock ${lasagna2.cantidad} - Precio x unid $${lasagna2.precio}.
@@ -134,7 +134,7 @@ while (nombreCliente != "Admin") {
     );
   } else if (eleccionCliente == 2) {
     opcionCliente = parseInt(
-      prompt(`${nombreCliente} por favor selecciona el relleno que más te guste:
+      prompt(`${nombreCliente} por favor seleccione el relleno que más te guste:
       1. ${pastas1.nombre} - Stock ${pastas1.cantidad} - Precio x unid $${pastas1.precio}.
       2. ${pastas2.nombre} - Stock ${pastas2.cantidad} - Precio x unid $${pastas2.precio}.
       3. ${pastas3.nombre} - Stock ${pastas3.cantidad} - Precio x unid $${pastas3.precio}.`)
@@ -161,12 +161,30 @@ while (nombreCliente != "Admin") {
     }
   }
 
+  // while (eleccionCliente == 1 || eleccionCliente == 2) {
+  //   cantidadCompra = undefined;
+  //   cantidadCompra = parseInt(prompt(`Elija cuantas unidades desea comprar? hay en Stock "${cantidad}" unidades:`  + productosEnStock[cantidad- 1]));
+  //   eleccionCliente = eleccionNueva;
+  // }
+
+  // if (
+  //   (eleccionCliente == 1) ||
+  //   (eleccionCliente == 2)
+  // ) {
+  //   function precioFinal(valor) {
+  //     let cantidad = parseInt( prompt(`Seleccionaste ${stock[valor - 1].nombre}, cuantas unidades quieres?`));
+  //     return cantidad * stock[valor - 1].precio;
+
+  //   }
+
+  // }
+
   //Ofrecer envio a domicilio. Detallar pedido y costo
 
   let eleccionDelivery = parseInt(
-    prompt(`Quieres envio a domicilio? Tendra un costo extra de $${costoEnvio}, seleccione una opción:
-  1. para obtener envio a domicilio.
-  2. para retirar en el local.
+    prompt(`Quieres envio a domicilio? Tendra un COSTO EXTRA de $${costoEnvio}, seleccione una opción:
+  1. Opción Delivery. Costo Final: $${eleccionCliente.precio} + $${costoEnvio} = $${precioFinal}. 
+  2. Opción Take Away. Costo Final: $${eleccionCliente.precio} = $${precioFinal}
   3. para salir.`)
   );
 
